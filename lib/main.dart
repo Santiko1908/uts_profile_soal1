@@ -132,6 +132,20 @@ class ProfilePage extends StatelessWidget {
                       )
                     )
                   ),
+
+                  const SizedBox(height: 20),
+
+                   Card(
+                  elevation: 2,
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Keahlian dan Hobi',
+                          style: Theme.of(context).textTheme.titleLarge,
+                        ),
                 ],
               ),
             ),
