@@ -42,13 +42,24 @@ class ProfilePage extends StatelessWidget {
           centerTitle: true,
           actions: [
             IconButton(
-              icon: const Icon(Icons.settings),
-              onPressed: () {
-                // Aksi ketika tombol pengaturan ditekan
-              },
+              icon: const Icon(Icons.mort_vert),
+              onPressed: () {},
             ),
           ],
         ),
+
+        body: SafeArea(
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [],
+              )
+              ],
+            ),
+          )
+        )
       );
     }
   }
