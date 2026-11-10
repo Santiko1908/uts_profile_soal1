@@ -33,5 +33,23 @@ class MyApp extends StatelessWidget {
 
 class ProfilePage extends StatelessWidget {
     const ProfilePage({super.key});
+
+    @override
+    Widget build(BuildContext context) {
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text('Profil Mahasiswa'),
+          centerTitle: true,
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.settings),
+              onPressed: () {
+                // Aksi ketika tombol pengaturan ditekan
+              },
+            ),
+          ],
+        ),
+      );
+    }
   }
 
