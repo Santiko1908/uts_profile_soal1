@@ -64,8 +64,74 @@ class ProfilePage extends StatelessWidget {
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
-                    ),)
-                  )
+                    ),
+                    ),
+
+                    const SizedBox(height: 20),
+
+                    Text(
+                      'Angger Santiko',
+                      style: Theme.of(context).textTheme.headlineMedium,
+                    ),
+                    text align: TextAlign.center,
+                  ),
+
+                  const SizedBox(height: 10),
+
+                  Text(
+                    'NIM: 1124160099',  
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+
+                  const: SizedBox(height: 5),
+
+                  Text(
+                    'Program Studi Sistem Informasi';
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+
+                  const SizedBox(height:25),
+
+                  Card(
+                    elevation: 2,
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Informasi Kontak',
+                          style: Theme.of(context).textTheme.titleLarge,
+                        ),
+
+                        const SizedBox(height: 10),
+
+                        const InfoTile(
+                          icon: Icons.email,
+                          label: 'Email',
+                          value: 'anggersesss@email.com',
+                        ),
+
+                        const InfoTile(
+                          icon: Icons.phone,
+                          label: 'Nomor HP',
+                          value: '082314946902',
+                        ),
+
+                        const InfoTile(
+                          icon: Icons.school,
+                          label: 'Kelas',
+                          value: 'Sistem Informasi',
+                        ),
+
+                        const InfoTile(
+                          icon: Icons.code,
+                          label: 'GitHub',
+                          value: 'github.com/Santiko1908',
+                        ),
+                      )
+                    )
+                  ),
                 ],
               ),
             ),
