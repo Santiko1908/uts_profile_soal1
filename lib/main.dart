@@ -165,6 +165,24 @@ class ProfilePage extends StatelessWidget {
                           icon: Icons.sports_soccer,
                           label: 'Hobi',
                           value: 'Olahraga dan Belajar Teknologi',
+                          ),
+                      ],
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 20),
+
+                 floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text(
+                'Terima kasih telah melihat profil saya',
+              ),
+            ),
+          );
+        },
                 ],
               ),
             ),
