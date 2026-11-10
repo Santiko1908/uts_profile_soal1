@@ -146,6 +146,25 @@ class ProfilePage extends StatelessWidget {
                           'Keahlian dan Hobi',
                           style: Theme.of(context).textTheme.titleLarge,
                         ),
+
+                        const SizedBox(height: 10),
+
+                        const InfoTile(
+                          icon: Icons.computer,
+                          label: 'Keahlian',
+                          value: 'Pemrograman dan Pengembangan Web',
+                        ),
+
+                        const InfoTile(
+                          icon: Icons.phone_android,
+                          label: 'Mobile Development',
+                          value: 'Flutter dan Dart',
+                        ),
+
+                        const InfoTile(
+                          icon: Icons.sports_soccer,
+                          label: 'Hobi',
+                          value: 'Olahraga dan Belajar Teknologi',
                 ],
               ),
             ),
