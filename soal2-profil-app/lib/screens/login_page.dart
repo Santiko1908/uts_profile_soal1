@@ -8,6 +8,13 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final _formKey = GlobalKey<FormState>();
+
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  bool isLoading = false;
+  bool isPasswordVisible = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: Center(child: Text('Halaman Login')));
