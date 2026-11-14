@@ -13,8 +13,24 @@ class _LoginPageState extends State<LoginPage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
-  bool isLoading = false;
   bool isPasswordVisible = false;
+
+  void login() {
+    if (!_formKey.currentState!.validate()) {
+      return;
+    }
+
+    ScaffoldMessenger.of(context)
+        .showSnackBar(const SnackBar(content: Text('Form login valid.')));
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                         return 'Format email tidak valid';
                       }
 
-                       return null;
+                      return null;
                     },
                   ),
 
@@ -91,7 +107,7 @@ class _LoginPageState extends State<LoginPage> {
                               : Icons.visibility_off,
                         ),
 
-                          onPressed: () {
+                        onPressed: () {
                           setState(() {
                             isPasswordVisible = !isPasswordVisible;
                           });
@@ -114,9 +130,27 @@ class _LoginPageState extends State<LoginPage> {
                     },
                   ),
 
+                  const SizedBox(height: 25),
+
+                  SizedBox(
+                    height: 50,
+                    child: ElevatedButton(
+                      onPressed: login,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
                         ),
                       ),
-                    },
+                      child: const Text(
+                        'LOGIN',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),
