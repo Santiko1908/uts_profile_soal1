@@ -16,3 +16,13 @@ class ProfilePage extends StatelessWidget {
     github: 'Santiko1908',
 
 },
+
+ @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Profil Saya'),
+        centerTitle: true,
+        backgroundColor: Colors.blue,
+        foregroundColor: Colors.white,
+      ),
