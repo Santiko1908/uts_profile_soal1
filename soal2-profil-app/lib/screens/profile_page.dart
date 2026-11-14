@@ -26,3 +26,18 @@ class ProfilePage extends StatelessWidget {
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
       ),
+
+       body: SingleChildScrollView(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          children: [
+            const CircleAvatar(
+              radius: 55,
+              backgroundColor: Colors.blue,
+              child: Icon(
+                Icons.person,
+                size: 65,
+                color: Colors.white,
+              ),
+            ),
+
