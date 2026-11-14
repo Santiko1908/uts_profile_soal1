@@ -4,4 +4,15 @@ import '../models/profile.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
+
+  final Profile profile = const Profile(
+    name: 'Angger Santiko',
+    nim: '1124160099',
+    studyProgram: 'Teknik Informatika',
+    studentClass: 'TISE24 Malam',
+    bio: 'Mahasiswa yang tertarik pada teknologi, investasi dan market global',
+    email: 'anggersantikogaul@gmail.com',
+    phone: '082314946902',
+    github: 'Santiko1908',
+
 },
