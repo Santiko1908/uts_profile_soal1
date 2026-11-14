@@ -90,6 +90,30 @@ class _LoginPageState extends State<LoginPage> {
                               ? Icons.visibility
                               : Icons.visibility_off,
                         ),
+
+                          onPressed: () {
+                          setState(() {
+                            isPasswordVisible = !isPasswordVisible;
+                          });
+                        },
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Password wajib diisi';
+                      }
+
+                      if (value.length < 6) {
+                        return 'Password minimal 6 karakter';
+                      }
+
+                      return null;
+                    },
+                  ),
+
                         ),
                       ),
                     },
