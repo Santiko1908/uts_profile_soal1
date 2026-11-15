@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 import '../models/profile.dart';
+import 'edit_profile_page.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -91,6 +91,22 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
 
+                  const SizedBox(height: 25),
+
+                  SizedBox(
+                    width: double.infinity,
+                    height: 50,
+                    child: ElevatedButton.icon(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const EditProfilePage(),
+                          ),
+                        );
+                      },
+
+              
                   const SizedBox(height: 10),
 
                   Card(

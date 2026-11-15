@@ -11,20 +11,29 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:soal2_profil_app/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
+  testWidgets('valid login opens profile page', (WidgetTester tester) async {
     await tester.pumpWidget(const MyApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    await tester.enterText(find.byType(TextFormField).at(0), 'test@example.com');
+    await tester.enterText(find.byType(TextFormField).at(1), 'password123');
+    await tester.tap(find.text('LOGIN'));
+    await tester.pumpAndSettle();
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    expect(find.text('Profil Saya'), findsOneWidget);
+    expect(find.text('Angger Santiko'), findsOneWidget);
+    expect(find.text('Teknik Informatika'), findsOneWidget);
+    expect(
+      find.text(
+        'Mahasiswa yang tertarik pada teknologi, investasi dan market global',
+      ),
+      findsOneWidget,
+    );
+    expect(find.text('1124160099'), findsOneWidget);
+    expect(find.text('TISE24 Malam'), findsOneWidget);
+    expect(find.text('Informasi Kontak'), findsOneWidget);
+    expect(find.text('anggersantikogaul@gmail.com'), findsOneWidget);
+    expect(find.text('082314946902'), findsOneWidget);
+    expect(find.text('Santiko1908'), findsOneWidget);
+    expect(find.byIcon(Icons.person), findsOneWidget);
   });
 }

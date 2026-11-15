@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'profile_page.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -20,8 +22,9 @@ class _LoginPageState extends State<LoginPage> {
       return;
     }
 
-    ScaffoldMessenger.of(context)
-        .showSnackBar(const SnackBar(content: Text('Form login valid.')));
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute<void>(builder: (context) => const ProfilePage()),
+    );
   }
 
   @override
