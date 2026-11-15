@@ -105,6 +105,17 @@ class ProfilePage extends StatelessWidget {
                           title: const Text('Email'),
                           subtitle: Text(profile.email),
                         ),
+
+                        const Divider(height: 1),
+
+                        ListTile(
+                          leading: const Icon(
+                            Icons.phone_outlined,
+                            color: Colors.blue,
+                          ),
+                          title: const Text('Nomor Telepon'),
+                          subtitle: Text(profile.phone),
+                        ),
                 ],
               ),
             ),
