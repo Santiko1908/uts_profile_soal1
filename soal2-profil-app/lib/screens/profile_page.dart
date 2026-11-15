@@ -116,6 +116,17 @@ class ProfilePage extends StatelessWidget {
                           title: const Text('Nomor Telepon'),
                           subtitle: Text(profile.phone),
                         ),
+
+                        const Divider(height: 1),
+
+                        ListTile(
+                          leading: const Icon(Icons.code, color: Colors.blue),
+                          title: const Text('GitHub'),
+                          subtitle: Text(profile.github),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
