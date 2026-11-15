@@ -14,10 +14,9 @@ class ProfilePage extends StatelessWidget {
     email: 'anggersantikogaul@gmail.com',
     phone: '082314946902',
     github: 'Santiko1908',
+  );
 
-},
-
- @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -27,17 +26,63 @@ class ProfilePage extends StatelessWidget {
         foregroundColor: Colors.white,
       ),
 
-       body: SingleChildScrollView(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
             const CircleAvatar(
               radius: 55,
               backgroundColor: Colors.blue,
-              child: Icon(
-                Icons.person,
-                size: 65,
-                color: Colors.white,
-              ),
+              child: Icon(Icons.person, size: 65, color: Colors.white),
+            ),
+            const SizedBox(height: 16),
+
+            Text(
+              profile.name,
+              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
 
+            const SizedBox(height: 6),
+
+            Text(
+              profile.studyProgram,
+              style: const TextStyle(color: Colors.grey, fontSize: 15),
+            ),
+
+            const SizedBox(height: 20),
+
+            Text(profile.bio, textAlign: TextAlign.center),
+
+            const SizedBox(height: 25),
+
+            Card(
+              elevation: 2,
+              child: Column(
+                children: [
+                  ListTile(
+                    leading: const Icon(
+                      Icons.badge_outlined,
+                      color: Colors.blue,
+                    ),
+                    title: const Text('NIM'),
+                    subtitle: Text(profile.nim),
+                  ),
+                  const Divider(height: 1),
+
+                  ListTile(
+                    leading: const Icon(
+                      Icons.school_outlined,
+                      color: Colors.blue,
+                    ),
+                    title: const Text('Kelas'),
+                    subtitle: Text(profile.studentClass),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

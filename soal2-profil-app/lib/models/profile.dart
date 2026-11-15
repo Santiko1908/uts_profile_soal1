@@ -8,7 +8,7 @@ class Profile {
   final String phone;
   final String github;
 
-  Profile({
+  const Profile({
     required this.name,
     required this.nim,
     required this.studyProgram,
