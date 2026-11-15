@@ -75,3 +75,27 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   return null;
                 },
               ),
+
+               const SizedBox(height: 20),
+
+              TextFormField(
+                controller: _emailController,
+                keyboardType: TextInputType.emailAddress,
+                decoration: const InputDecoration(
+                  labelText: 'Email',
+                  prefixIcon: Icon(Icons.email_outlined),
+                  border: OutlineInputBorder(),
+                ),
+                validator: (value) {
+                  if (value == null || value.trim().isEmpty) {
+                    return 'Email wajib diisi';
+                  }
+
+                  if (!RegExp(r'^[^@]+@[^@]+\.[^@]+$')
+                      .hasMatch(value.trim())) {
+                    return 'Format email tidak valid';
+                  }
+
+                  return null;
+                },
+              ),
