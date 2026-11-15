@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
+
 import '../models/profile.dart';
 
 class EditProfilePage extends StatefulWidget {
   final Profile profile;
 
-  const EditProfilePage({
-    super.key,
-    required this.profile,
-  });
+  const EditProfilePage({super.key, required this.profile});
 
   @override
   State<EditProfilePage> createState() => _EditProfilePageState();
@@ -24,20 +22,14 @@ class _EditProfilePageState extends State<EditProfilePage> {
   void initState() {
     super.initState();
 
-    _nameController = TextEditingController(
-      text: widget.profile.name,
-    );
+    _nameController = TextEditingController(text: widget.profile.name);
 
-    _emailController = TextEditingController(
-      text: widget.profile.email,
-    );
+    _emailController = TextEditingController(text: widget.profile.email);
 
-    _phoneController = TextEditingController(
-      text: widget.profile.phone,
-    );
+    _phoneController = TextEditingController(text: widget.profile.phone);
   }
 
-   @override
+  @override
   void dispose() {
     _nameController.dispose();
     _emailController.dispose();
@@ -54,7 +46,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
         foregroundColor: Colors.white,
       ),
 
-       body: SingleChildScrollView(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Form(
           key: _formKey,
@@ -76,7 +68,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 },
               ),
 
-               const SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               TextFormField(
                 controller: _emailController,
@@ -91,8 +83,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     return 'Email wajib diisi';
                   }
 
-                  if (!RegExp(r'^[^@]+@[^@]+\.[^@]+$')
-                      .hasMatch(value.trim())) {
+                  if (!RegExp(r'^[^@]+@[^@]+\.[^@]+$').hasMatch(value.trim())) {
                     return 'Format email tidak valid';
                   }
 
@@ -123,3 +114,31 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 },
               ),
 
+              const SizedBox(height: 30),
+
+              ElevatedButton(
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    final updatedProfile = widget.profile.copyWith(
+                      name: _nameController.text.trim(),
+                      email: _emailController.text.trim(),
+                      phone: _phoneController.text.trim(),
+                    );
+
+                    Navigator.pop(context, updatedProfile);
+                  }
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(vertical: 15),
+                ),
+                child: const Text('Simpan Perubahan'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
