@@ -99,3 +99,27 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   return null;
                 },
               ),
+
+              const SizedBox(height: 20),
+
+              TextFormField(
+                controller: _phoneController,
+                keyboardType: TextInputType.phone,
+                decoration: const InputDecoration(
+                  labelText: 'Nomor Telepon',
+                  prefixIcon: Icon(Icons.phone_outlined),
+                  border: OutlineInputBorder(),
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Nomor telepon wajib diisi';
+                  }
+
+                  if (!RegExp(r'^[0-9]{10,13}$').hasMatch(value)) {
+                    return 'Nomor harus 10-13 digit angka';
+                  }
+
+                  return null;
+                },
+              ),
+
