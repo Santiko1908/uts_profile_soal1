@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../models/profile.dart';
 import 'edit_profile_page.dart';
 
@@ -106,7 +107,18 @@ class ProfilePage extends StatelessWidget {
                         );
                       },
 
-              
+                      icon: const Icon(Icons.edit),
+                      label: const Text('Edit Profil'),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                    ),
+                  ),
+
                   const SizedBox(height: 10),
 
                   Card(
