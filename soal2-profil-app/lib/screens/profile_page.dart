@@ -90,6 +90,21 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ),
                   ),
+
+                  const SizedBox(height: 10),
+
+                  Card(
+                    elevation: 2,
+                    child: Column(
+                      children: [
+                        ListTile(
+                          leading: const Icon(
+                            Icons.email_outlined,
+                            color: Colors.blue,
+                          ),
+                          title: const Text('Email'),
+                          subtitle: Text(profile.email),
+                        ),
                 ],
               ),
             ),
