@@ -77,6 +77,19 @@ class ProfilePage extends StatelessWidget {
                     title: const Text('Kelas'),
                     subtitle: Text(profile.studentClass),
                   ),
+
+                  const SizedBox(height: 20),
+
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Informasi Kontak',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
