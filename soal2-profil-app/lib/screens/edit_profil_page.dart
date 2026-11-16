@@ -29,10 +29,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
     super.initState();
 
     _nameController = TextEditingController(text: widget.profile.name);
-
+    _nimController = TextEditingController(text: widget.profile.nim);
+    _classController = TextEditingController(text: widget.profile.studentClass);
+    _bioController = TextEditingController(text: widget.profile.bio);
     _emailController = TextEditingController(text: widget.profile.email);
-
     _phoneController = TextEditingController(text: widget.profile.phone);
+
+    _selectedImagePath = widget.profile.photoPath;
   }
 
   @override
