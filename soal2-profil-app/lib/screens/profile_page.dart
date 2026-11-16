@@ -183,6 +183,28 @@ class _ProfilePageState extends State<ProfilePage> {
                             title: const Text('GitHub'),
                             subtitle: Text(profile.github),
                           ),
+
+                          const SizedBox(height: 15),
+
+                          Padding(
+                            padding: const EdgeInsets.all(16),
+                            child: SizedBox(
+                              width: double.infinity,
+                              height: 50,
+                              child: ElevatedButton.icon(
+                                onPressed: _editProfile,
+                                icon: const Icon(Icons.edit),
+                                label: const Text('Edit Profil'),
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.blue,
+                                  foregroundColor: Colors.white,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
