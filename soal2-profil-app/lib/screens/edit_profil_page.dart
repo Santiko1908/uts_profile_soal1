@@ -112,6 +112,44 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 },
               ),
 
+               const SizedBox(height: 20),
+
+              // Kelas
+              TextFormField(
+                controller: _classController,
+                decoration: const InputDecoration(
+                  labelText: 'Kelas',
+                  prefixIcon: Icon(Icons.school_outlined),
+                  border: OutlineInputBorder(),
+                ),
+                validator: (value) {
+                  if (value == null || value.trim().isEmpty) {
+                    return 'Kelas wajib diisi';
+                  }
+                  return null;
+                },
+              ),
+
+                const SizedBox(height: 20),
+
+              // Bio
+              TextFormField(
+                controller: _bioController,
+                maxLines: 3,
+                decoration: const InputDecoration(
+                  labelText: 'Bio / Tentang Saya',
+                  prefixIcon: Icon(Icons.description_outlined),
+                  border: OutlineInputBorder(),
+                  alignLabelWithHint: true,
+                ),
+                validator: (value) {
+                  if (value == null || value.trim().isEmpty) {
+                    return 'Bio wajib diisi';
+                  }
+                  return null;
+                },
+              ),
+
                const SizedBox(height: 12),
                     OutlinedButton.icon(
                       onPressed: _pickImage,
@@ -167,15 +205,19 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
               const SizedBox(height: 30),
 
-              ElevatedButton(
+              ElevatedButton.icon(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     final updatedProfile = widget.profile.copyWith(
                       name: _nameController.text.trim(),
+                      nim: _nimController.text.trim(),
+                      studentClass: _classController.text.trim(),
+                      bio: _bioController.text.trim(),
                       email: _emailController.text.trim(),
                       phone: _phoneController.text.trim(),
+                      photoPath: _selectedImagePath,
                     );
-
+                    
                     Navigator.pop(context, updatedProfile);
                   }
                 },
