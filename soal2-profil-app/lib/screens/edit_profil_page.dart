@@ -38,6 +38,21 @@ class _EditProfilePageState extends State<EditProfilePage> {
     _selectedImagePath = widget.profile.photoPath;
   }
 
+  Future<void> _pickImage() async {
+    final picker = ImagePicker();
+
+    final pickedFile = await picker.pickImage(
+      source: ImageSource.gallery,
+      imageQuality: 80,
+    );
+
+    if (pickedFile != null) {
+      setState(() {
+        _selectedImagePath = pickedFile.path;
+      });
+    }
+  }
+
   @override
   void dispose() {
     _nameController.dispose();
