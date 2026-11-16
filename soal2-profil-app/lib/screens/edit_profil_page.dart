@@ -61,6 +61,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
     _bioController.dispose();
     _emailController.dispose();
     _phoneController.dispose();
+
+    super.dispose()
   }
 
   @override
@@ -93,6 +95,29 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   return null;
                 },
               ),
+
+               TextFormField(
+                controller: _nimController,
+                keyboardType: TextInputType.number,
+                decoration: const InputDecoration(
+                  labelText: 'NIM',
+                  prefixIcon: Icon(Icons.badge_outlined),
+                  border: OutlineInputBorder(),
+                ),
+                validator: (value) {
+                  if (value == null || value.trim().isEmpty) {
+                    return 'NIM wajib diisi';
+                  }
+                  return null;
+                },
+              ),
+
+               const SizedBox(height: 12),
+                    OutlinedButton.icon(
+                      onPressed: _pickImage,
+                      icon: const Icon(Icons.image_outlined),
+                      label: const Text('Ganti Foto'),
+                    ),
 
               const SizedBox(height: 20),
 
