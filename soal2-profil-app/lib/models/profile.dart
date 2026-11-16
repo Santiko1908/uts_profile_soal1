@@ -7,6 +7,7 @@ class Profile {
   final String email;
   final String phone;
   final String github;
+  final String? photoPath;
 
   const Profile({
     required this.name,

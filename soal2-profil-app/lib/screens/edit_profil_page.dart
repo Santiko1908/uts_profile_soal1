@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/profile.dart';
+import '../models/profile.dart';
 
 class EditProfilePage extends StatefulWidget {
   final Profile profile;
@@ -15,8 +16,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
   final _formKey = GlobalKey<FormState>();
 
   late TextEditingController _nameController;
+  late TextEditingController _nimController;
+  late TextEditingController _classController;
+  late TextEditingController _bioController;
   late TextEditingController _emailController;
   late TextEditingController _phoneController;
+
+  String? _selectedImagePath;
 
   @override
   void initState() {
