@@ -17,6 +17,7 @@ class Profile {
     required this.email,
     required this.phone,
     required this.github,
+    this.photoPath,
   });
 
   Profile copyWith({
@@ -28,6 +29,7 @@ class Profile {
     String? email,
     String? phone,
     String? github,
+    String? photoPath,
   }) {
     return Profile(
       name: name ?? this.name,
@@ -38,6 +40,7 @@ class Profile {
       email: email ?? this.email,
       phone: phone ?? this.phone,
       github: github ?? this.github,
+      photoPath: photoPath ?? this.photoPath,
     );
   }
 }
