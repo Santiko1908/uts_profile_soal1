@@ -1,4 +1,4 @@
-import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -24,7 +24,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
   late final TextEditingController _emailController;
   late final TextEditingController _phoneController;
 
-  String? _selectedImagePath;
+  Uint8List? _selectedImageBytes;
 
   @override
   void initState() {
@@ -36,19 +36,22 @@ class _EditProfilePageState extends State<EditProfilePage> {
     _bioController = TextEditingController(text: widget.profile.bio);
     _emailController = TextEditingController(text: widget.profile.email);
     _phoneController = TextEditingController(text: widget.profile.phone);
-    _selectedImagePath = widget.profile.photoPath;
+    _selectedImageBytes = widget.profile.photoBytes;
   }
 
   Future<void> _pickImage() async {
     final picker = ImagePicker();
+
     final pickedFile = await picker.pickImage(
       source: ImageSource.gallery,
       imageQuality: 80,
     );
 
     if (pickedFile != null) {
+      final imageBytes = await pickedFile.readAsBytes();
+
       setState(() {
-        _selectedImagePath = pickedFile.path;
+        _selectedImageBytes = imageBytes;
       });
     }
   }
@@ -85,10 +88,10 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     CircleAvatar(
                       radius: 55,
                       backgroundColor: Colors.blue,
-                      backgroundImage: _selectedImagePath != null
-                          ? FileImage(File(_selectedImagePath!))
+                      backgroundImage: _selectedImageBytes != null
+                          ? MemoryImage(_selectedImageBytes!)
                           : null,
-                      child: _selectedImagePath == null
+                      child: _selectedImageBytes == null
                           ? const Icon(
                               Icons.person,
                               size: 65,
@@ -105,7 +108,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   ],
                 ),
               ),
-
+              const SizedBox(height: 25),
               TextFormField(
                 controller: _nameController,
                 decoration: const InputDecoration(
