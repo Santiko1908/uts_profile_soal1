@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../models/profile.dart';
 import 'edit_profil_page.dart';
 
+import 'dart:io';
+
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
 
@@ -58,10 +60,15 @@ class _ProfilePageState extends State<ProfilePage> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CircleAvatar(
+            CircleAvatar(
               radius: 55,
               backgroundColor: Colors.blue,
-              child: Icon(Icons.person, size: 65, color: Colors.white),
+              backgroundImage: profile.photoPath != null
+                  ? FileImage(File(profile.photoPath!))
+                  : null,
+              child: profile.photoPath == null
+                  ? const Icon(Icons.person, size: 65, color: Colors.white)
+                  : null,
             ),
             const SizedBox(height: 16),
             Text(

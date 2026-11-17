@@ -93,6 +93,35 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   return null;
                 },
               ),
+
+              Center(
+                child: Column(
+                  children: [
+                    CircleAvatar(
+                      radius: 55,
+                      backgroundColor: Colors.blue,
+                      backgroundImage: _selectedImagePath != null
+                          ? FileImage(File(_selectedImagePath!))
+                          : null,
+                      child: _selectedImagePath == null
+                          ? const Icon(
+                              Icons.person,
+                              size: 65,
+                              color: Colors.white,
+                            )
+                          : null,
+                    ),
+                    const SizedBox(height: 12),
+                    OutlinedButton.icon(
+                      onPressed: _pickImage,
+                      icon: const Icon(Icons.image_outlined),
+                      label: const Text('Ganti Foto'),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 25),
+
               const SizedBox(height: 20),
               TextFormField(
                 controller: _nimController,
