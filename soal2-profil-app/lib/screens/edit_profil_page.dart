@@ -254,7 +254,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       bio: _bioController.text.trim(),
                       email: _emailController.text.trim(),
                       phone: _phoneController.text.trim(),
-                      photoPath: _selectedImagePath,
+                      photoBytes: _selectedImageBytes,
                     );
 
                     Navigator.pop(context, updatedProfile);
