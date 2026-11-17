@@ -56,6 +56,44 @@ class AboutMePage extends StatelessWidget {
           ),
 
           const SizedBox(height: 20),
+
+          const Text(
+            'Hobi dan Minat',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+
+          const SizedBox(height: 10),
+
+          const ListTile(
+            leading: Icon(Icons.laptop, color: Colors.blue),
+            title: Text('Belajar Teknologi'),
+          ),
+
+          const ListTile(
+            leading: Icon(Icons.trending_up, color: Colors.blue),
+            title: Text('Investasi dan Market Global'),
+          ),
+
+          const ListTile(
+            leading: Icon(Icons.menu_book, color: Colors.blue),
+            title: Text('Belajar Hal Baru'),
+          ),
+
+          const SizedBox(height: 20),
+
+          // Bagian Pendidikan
+          const Text(
+            'Riwayat Pendidikan',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+
+          const SizedBox(height: 10),
+
+          const ListTile(
+            leading: Icon(Icons.school, color: Colors.blue),
+            title: Text('Teknik Informatika'),
+            subtitle: Text('Pendidikan saat ini'),
+          ),
         ],
       ),
     );
