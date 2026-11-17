@@ -124,34 +124,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 },
               ),
 
-              Center(
-                child: Column(
-                  children: [
-                    CircleAvatar(
-                      radius: 55,
-                      backgroundColor: Colors.blue,
-                      backgroundImage: _selectedImagePath != null
-                          ? FileImage(File(_selectedImagePath!))
-                          : null,
-                      child: _selectedImagePath == null
-                          ? const Icon(
-                              Icons.person,
-                              size: 65,
-                              color: Colors.white,
-                            )
-                          : null,
-                    ),
-                    const SizedBox(height: 12),
-                    OutlinedButton.icon(
-                      onPressed: _pickImage,
-                      icon: const Icon(Icons.image_outlined),
-                      label: const Text('Ganti Foto'),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 25),
-
               const SizedBox(height: 20),
               TextFormField(
                 controller: _nimController,
@@ -232,11 +204,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   border: OutlineInputBorder(),
                 ),
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
+                  final phone = value?.trim() ?? '';
+
+                  if (phone.isEmpty) {
                     return 'Nomor telepon wajib diisi';
                   }
 
-                  if (!RegExp(r'^[0-9]{10,13}$').hasMatch(value)) {
+                  if (!RegExp(r'^[0-9]{10,13}$').hasMatch(phone)) {
                     return 'Nomor harus 10-13 digit angka';
                   }
 

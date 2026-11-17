@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 class Profile {
   final String name;
   final String nim;
@@ -7,7 +9,7 @@ class Profile {
   final String email;
   final String phone;
   final String github;
-  final String? photoPath;
+  final Uint8List? photoBytes;
 
   const Profile({
     required this.name,
@@ -18,7 +20,7 @@ class Profile {
     required this.email,
     required this.phone,
     required this.github,
-    this.photoPath,
+    this.photoBytes,
   });
 
   Profile copyWith({
@@ -30,7 +32,7 @@ class Profile {
     String? email,
     String? phone,
     String? github,
-    String? photoPath,
+    Uint8List? photoBytes,
   }) {
     return Profile(
       name: name ?? this.name,
@@ -41,7 +43,7 @@ class Profile {
       email: email ?? this.email,
       phone: phone ?? this.phone,
       github: github ?? this.github,
-      photoPath: photoPath ?? this.photoPath,
+      photoBytes: photoBytes ?? this.photoBytes,
     );
   }
 }

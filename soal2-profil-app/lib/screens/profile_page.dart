@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import '../models/profile.dart';
 import 'edit_profil_page.dart';
 
-import 'dart:io';
-
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
 
@@ -63,10 +61,10 @@ class _ProfilePageState extends State<ProfilePage> {
             CircleAvatar(
               radius: 55,
               backgroundColor: Colors.blue,
-              backgroundImage: profile.photoPath != null
-                  ? FileImage(File(profile.photoPath!))
+              backgroundImage: profile.photoBytes != null
+                  ? MemoryImage(profile.photoBytes!)
                   : null,
-              child: profile.photoPath == null
+              child: profile.photoBytes == null
                   ? const Icon(Icons.person, size: 65, color: Colors.white)
                   : null,
             ),
