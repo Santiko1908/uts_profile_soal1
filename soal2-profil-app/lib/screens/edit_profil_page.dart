@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../models/profile.dart';
-import '../models/profile.dart';
+
+import 'dart:io';
 
 class EditProfilePage extends StatefulWidget {
   final Profile profile;
@@ -15,12 +17,12 @@ class EditProfilePage extends StatefulWidget {
 class _EditProfilePageState extends State<EditProfilePage> {
   final _formKey = GlobalKey<FormState>();
 
-  late TextEditingController _nameController;
-  late TextEditingController _nimController;
-  late TextEditingController _classController;
-  late TextEditingController _bioController;
-  late TextEditingController _emailController;
-  late TextEditingController _phoneController;
+  late final TextEditingController _nameController;
+  late final TextEditingController _nimController;
+  late final TextEditingController _classController;
+  late final TextEditingController _bioController;
+  late final TextEditingController _emailController;
+  late final TextEditingController _phoneController;
 
   String? _selectedImagePath;
 
@@ -34,13 +36,11 @@ class _EditProfilePageState extends State<EditProfilePage> {
     _bioController = TextEditingController(text: widget.profile.bio);
     _emailController = TextEditingController(text: widget.profile.email);
     _phoneController = TextEditingController(text: widget.profile.phone);
-
     _selectedImagePath = widget.profile.photoPath;
   }
 
   Future<void> _pickImage() async {
     final picker = ImagePicker();
-
     final pickedFile = await picker.pickImage(
       source: ImageSource.gallery,
       imageQuality: 80,
@@ -61,8 +61,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
     _bioController.dispose();
     _emailController.dispose();
     _phoneController.dispose();
-
-    super.dispose()
+    super.dispose();
   }
 
   @override
@@ -73,7 +72,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
       ),
-
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Form(
@@ -95,8 +93,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   return null;
                 },
               ),
-
-               TextFormField(
+              const SizedBox(height: 20),
+              TextFormField(
                 controller: _nimController,
                 keyboardType: TextInputType.number,
                 decoration: const InputDecoration(
@@ -111,10 +109,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   return null;
                 },
               ),
-
-               const SizedBox(height: 20),
-
-              // Kelas
+              const SizedBox(height: 20),
               TextFormField(
                 controller: _classController,
                 decoration: const InputDecoration(
@@ -129,10 +124,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   return null;
                 },
               ),
-
-                const SizedBox(height: 20),
-
-              // Bio
+              const SizedBox(height: 20),
               TextFormField(
                 controller: _bioController,
                 maxLines: 3,
@@ -149,16 +141,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   return null;
                 },
               ),
-
-               const SizedBox(height: 12),
-                    OutlinedButton.icon(
-                      onPressed: _pickImage,
-                      icon: const Icon(Icons.image_outlined),
-                      label: const Text('Ganti Foto'),
-                    ),
-
+              const SizedBox(height: 12),
+              OutlinedButton.icon(
+                onPressed: _pickImage,
+                icon: const Icon(Icons.image_outlined),
+                label: const Text('Ganti Foto'),
+              ),
               const SizedBox(height: 20),
-
               TextFormField(
                 controller: _emailController,
                 keyboardType: TextInputType.emailAddress,
@@ -179,9 +168,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   return null;
                 },
               ),
-
               const SizedBox(height: 20),
-
               TextFormField(
                 controller: _phoneController,
                 keyboardType: TextInputType.phone,
@@ -202,9 +189,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   return null;
                 },
               ),
-
               const SizedBox(height: 30),
-
               ElevatedButton.icon(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
@@ -217,7 +202,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       phone: _phoneController.text.trim(),
                       photoPath: _selectedImagePath,
                     );
-                    
+
                     Navigator.pop(context, updatedProfile);
                   }
                 },
@@ -226,7 +211,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   foregroundColor: Colors.white,
                   padding: const EdgeInsets.symmetric(vertical: 15),
                 ),
-                child: const Text('Simpan Perubahan'),
+                icon: const Icon(Icons.save),
+                label: const Text('Simpan Perubahan'),
               ),
             ],
           ),
