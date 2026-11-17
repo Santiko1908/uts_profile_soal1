@@ -1,9 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../models/profile.dart';
-
-import 'dart:io';
 
 class EditProfilePage extends StatefulWidget {
   final Profile profile;
@@ -79,6 +79,33 @@ class _EditProfilePageState extends State<EditProfilePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              Center(
+                child: Column(
+                  children: [
+                    CircleAvatar(
+                      radius: 55,
+                      backgroundColor: Colors.blue,
+                      backgroundImage: _selectedImagePath != null
+                          ? FileImage(File(_selectedImagePath!))
+                          : null,
+                      child: _selectedImagePath == null
+                          ? const Icon(
+                              Icons.person,
+                              size: 65,
+                              color: Colors.white,
+                            )
+                          : null,
+                    ),
+                    const SizedBox(height: 12),
+                    OutlinedButton.icon(
+                      onPressed: _pickImage,
+                      icon: const Icon(Icons.image_outlined),
+                      label: const Text('Ganti Foto'),
+                    ),
+                  ],
+                ),
+              ),
+
               TextFormField(
                 controller: _nameController,
                 decoration: const InputDecoration(
@@ -170,12 +197,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   return null;
                 },
               ),
-              const SizedBox(height: 12),
-              OutlinedButton.icon(
-                onPressed: _pickImage,
-                icon: const Icon(Icons.image_outlined),
-                label: const Text('Ganti Foto'),
-              ),
+
               const SizedBox(height: 20),
               TextFormField(
                 controller: _emailController,
