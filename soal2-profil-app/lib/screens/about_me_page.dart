@@ -29,6 +29,33 @@ class AboutMePage extends StatelessWidget {
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
           ),
+
+          const SizedBox(height: 25),
+
+          // Bagian Skills
+          const Text(
+            'Skills',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+
+          const SizedBox(height: 10),
+
+          const ListTile(
+            leading: Icon(Icons.code, color: Colors.blue),
+            title: Text('Flutter Development'),
+          ),
+
+          const ListTile(
+            leading: Icon(Icons.computer, color: Colors.blue),
+            title: Text('Web Development'),
+          ),
+
+          const ListTile(
+            leading: Icon(Icons.design_services, color: Colors.blue),
+            title: Text('UI/UX Design'),
+          ),
+
+          const SizedBox(height: 20),
         ],
       ),
     );
