@@ -54,7 +54,7 @@ Proyek ini dibuat sebagai implementasi pemahaman penggunaan widget, pengelolaan 
 
 **Video penjelasan dan demonstrasi aplikasi**
 
-[![Watch Demo](https://img.shields.io/badge/▶_WATCH_DEMO-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)]([LINK_VIDEO_KAMU](https://youtu.be/9FxrbjV_5C4))
+[![Watch Demo](https://img.shields.io/badge/▶_WATCH_DEMO-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)]([https://youtu.be/9FxrbjV_5C4])
 
 *Klik tombol di atas untuk melihat video penjelasan aplikasi.*
 
