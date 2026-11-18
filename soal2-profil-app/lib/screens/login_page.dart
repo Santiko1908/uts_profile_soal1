@@ -36,8 +36,10 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: colorScheme.surface,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -47,26 +49,30 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  const Icon(
+                  Icon(
                     Icons.account_circle,
                     size: 90,
-                    color: Colors.blue,
+                    color: colorScheme.primary,
                   ),
 
                   const SizedBox(height: 20),
 
-                  const Text(
+                  Text(
                     'Selamat Datang!',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.bold,
+                      color: colorScheme.onSurface,
+                    ),
                   ),
 
                   const SizedBox(height: 8),
 
-                  const Text(
+                  Text(
                     'Silakan login untuk melihat profil Anda',
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.grey),
+                    style: TextStyle(color: colorScheme.onSurfaceVariant),
                   ),
 
                   const SizedBox(height: 35),
@@ -74,14 +80,17 @@ class _LoginPageState extends State<LoginPage> {
                   TextFormField(
                     controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
+                    style: TextStyle(color: colorScheme.onSurface),
                     decoration: InputDecoration(
                       labelText: 'Email',
+                      labelStyle: TextStyle(
+                        color: colorScheme.onSurfaceVariant,
+                      ),
                       prefixIcon: const Icon(Icons.email_outlined),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
-
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Email wajib diisi';
@@ -100,8 +109,12 @@ class _LoginPageState extends State<LoginPage> {
                   TextFormField(
                     controller: _passwordController,
                     obscureText: !isPasswordVisible,
+                    style: TextStyle(color: colorScheme.onSurface),
                     decoration: InputDecoration(
                       labelText: 'Password',
+                      labelStyle: TextStyle(
+                        color: colorScheme.onSurfaceVariant,
+                      ),
                       prefixIcon: const Icon(Icons.lock_outline),
                       suffixIcon: IconButton(
                         icon: Icon(
@@ -109,7 +122,6 @@ class _LoginPageState extends State<LoginPage> {
                               ? Icons.visibility
                               : Icons.visibility_off,
                         ),
-
                         onPressed: () {
                           setState(() {
                             isPasswordVisible = !isPasswordVisible;
@@ -140,8 +152,8 @@ class _LoginPageState extends State<LoginPage> {
                     child: ElevatedButton(
                       onPressed: login,
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue,
-                        foregroundColor: Colors.white,
+                        backgroundColor: colorScheme.primary,
+                        foregroundColor: colorScheme.onPrimary,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
