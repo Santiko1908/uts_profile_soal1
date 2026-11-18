@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/profile.dart';
+import 'about_me_page.dart';
 import 'edit_profil_page.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -80,6 +81,12 @@ class _ProfilePageState extends State<ProfilePage> {
               title: const Text('About Me'),
               onTap: () {
                 Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (context) => AboutMePage(profile: profile),
+                  ),
+                );
               },
             ),
           ],
@@ -91,6 +98,17 @@ class _ProfilePageState extends State<ProfilePage> {
         centerTitle: true,
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
+      ),
+
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Terima kasih telah melihat profil saya'),
+            ),
+          );
+        },
+        child: const Icon(Icons.thumb_up),
       ),
 
       body: SingleChildScrollView(
