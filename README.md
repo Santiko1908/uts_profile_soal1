@@ -60,8 +60,6 @@ Proyek ini dibuat sebagai implementasi pemahaman penggunaan widget, pengelolaan 
 
 </div>
 
-> Ganti `LINK_VIDEO_KAMU` dengan tautan video YouTube milikmu setelah diunggah.
-
 ---
 
 ## 📸 Preview Aplikasi
