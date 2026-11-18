@@ -48,12 +48,51 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // DRAWER
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            UserAccountsDrawerHeader(
+              decoration: const BoxDecoration(color: Colors.blue),
+              accountName: Text(profile.name),
+              accountEmail: Text(profile.email),
+              currentAccountPicture: CircleAvatar(
+                backgroundColor: Colors.white,
+                backgroundImage: profile.photoBytes != null
+                    ? MemoryImage(profile.photoBytes!)
+                    : null,
+                child: profile.photoBytes == null
+                    ? const Icon(Icons.person, size: 40, color: Colors.blue)
+                    : null,
+              ),
+            ),
+
+            ListTile(
+              leading: const Icon(Icons.person),
+              title: const Text('Profil'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.info_outline),
+              title: const Text('About Me'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
+
       appBar: AppBar(
         title: const Text('Profil Saya'),
         centerTitle: true,
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
       ),
+
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../models/profile.dart';
+
 class AboutMePage extends StatelessWidget {
-  const AboutMePage({super.key});
+  final Profile profile;
+
+  const AboutMePage({super.key, required this.profile});
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +19,15 @@ class AboutMePage extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
-          const CircleAvatar(
+          CircleAvatar(
             radius: 45,
             backgroundColor: Colors.blue,
-            child: Icon(Icons.person, size: 55, color: Colors.white),
+            backgroundImage: profile.photoBytes != null
+                ? MemoryImage(profile.photoBytes!)
+                : null,
+            child: profile.photoBytes == null
+                ? const Icon(Icons.person, size: 55, color: Colors.white)
+                : null,
           ),
 
           const SizedBox(height: 15),
