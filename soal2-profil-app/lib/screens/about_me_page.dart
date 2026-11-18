@@ -32,10 +32,19 @@ class AboutMePage extends StatelessWidget {
 
           const SizedBox(height: 15),
 
-          const Center(
+          Center(
             child: Text(
-              'Angger Santiko',
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              profile.name,
+              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            ),
+          ),
+
+          const SizedBox(height: 6),
+
+          Center(
+            child: Text(
+              profile.studyProgram,
+              style: const TextStyle(fontSize: 15, color: Colors.grey),
             ),
           ),
 
