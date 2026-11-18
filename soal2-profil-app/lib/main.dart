@@ -14,10 +14,28 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Aplikasi Profil',
       debugShowCheckedModeBanner: false,
+
+      // Light Mode
       theme: ThemeData(
         useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.blue,
+          brightness: Brightness.light,
+        ),
       ),
+
+      // Dark Mode
+      darkTheme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.blue,
+          brightness: Brightness.dark,
+        ),
+      ),
+
+      // Mengikuti tema perangkat
+      themeMode: ThemeMode.system,
+
       home: const LoginPage(),
     );
   }
